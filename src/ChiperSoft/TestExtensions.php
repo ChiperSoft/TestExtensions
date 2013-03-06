@@ -1,14 +1,13 @@
 <?php
 
-namespace jtreminio\TestExtensions;
+namespace ChiperSoft;
 
 /**
  * Some useful methods to make testing with PHPUnit faster and more fun
  *
- * @author Juan Treminio <jtreminio@gmail.com>
+ * @author Jarvis Badgley <chiper@chipersoft.com> and Juan Treminio <jtreminio@gmail.com>
  */
-abstract class TestExtensions extends \PHPUnit_Framework_TestCase
-{
+trait TestExtensions {
 
     /**
      * Set protected/private attribute of object
