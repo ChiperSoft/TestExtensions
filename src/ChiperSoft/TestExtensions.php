@@ -44,16 +44,19 @@ trait TestExtensions {
     }
 
     /**
-     * Call protected/private method of a class.
+     * Call protected/private method of a class. Pass any function arguments after the method name
      *
      * @param object &$object    Instantiated object that we will run method on.
      * @param string $methodName Method name to call
-     * @param array  $parameters Array of parameters to pass into method.
      *
      * @return mixed Method return.
      */
-    public function invokeMethod(&$object, $methodName, array $parameters = array())
+    public function invokeMethod(&$object, $methodName)
     {
+
+        $parameters = func_get_args();
+        $parameters = array_slice($parameters, 2);
+
         $reflection = new \ReflectionClass(get_class($object));
         $method = $reflection->getMethod($methodName);
         $method->setAccessible(true);
